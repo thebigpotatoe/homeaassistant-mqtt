@@ -36,7 +36,6 @@ namespace HA_MQTT {
     typedef std::tuple<std::string, uint8_t, SubscriptionCallback*> SubscritionData;
     typedef std::list<SubscritionData> SubscriptionList;
     typedef std::function<void(void*)> EventCallback;
-    typedef std::shared_ptr<std::string> SharedString;
 
     // Constructors
     Component(const char* _componet_type, const char* _node_id) : componet_type(_componet_type), node_id(_node_id) {
