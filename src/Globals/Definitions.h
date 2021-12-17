@@ -14,15 +14,20 @@ copies or substantial portions of the Software.
 
 #pragma once
 
-#include "./Declarations.h"
 #include "../Client/Client.h"
 #include "../Components/Component.h"
+#include "./Declarations.h"
 
 namespace HA_MQTT {
+#ifndef HA_MQTT_DISABLE_GLOBAL_CLIENT
   Client HA_MQTT_CLIENT;
+#endif
+
   void add_component_globally(HA_MQTT::Component* _component) {
+#ifndef HA_MQTT_DISABLE_GLOBAL_CLIENT
     if (_component) {
       HA_MQTT_CLIENT.add_component(_component);
     }
+#endif
   }
 }  // namespace HA_MQTT
